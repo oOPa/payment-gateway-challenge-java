@@ -6,20 +6,20 @@ import java.io.Serializable;
 public class PostPaymentRequest implements Serializable {
 
   @JsonProperty("card_number")
-  private long cardNumber;
+  private String cardNumber;
   @JsonProperty("expiry_month")
   private int expiryMonth;
   @JsonProperty("expiry_year")
   private int expiryYear;
   private String currency;
   private int amount;
-  private int cvv;
+  private String cvv;
 
-  public long getCardNumber() {
+  public String getCardNumber() {
     return cardNumber;
   }
 
-  public void setCardNumber(long cardNumber) {
+  public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
   }
 
@@ -55,17 +55,17 @@ public class PostPaymentRequest implements Serializable {
     this.amount = amount;
   }
 
-  public int getCvv() {
+  public String getCvv() {
     return cvv;
   }
 
-  public void setCvv(int cvv) {
+  public void setCvv(String cvv) {
     this.cvv = cvv;
   }
 
   @JsonProperty("expiry_date")
   public String getExpiryDate() {
-    return String.format("%d/%d", expiryMonth, expiryYear);
+    return String.format("%02d/%d", expiryMonth, expiryYear);
   }
 
   @Override
